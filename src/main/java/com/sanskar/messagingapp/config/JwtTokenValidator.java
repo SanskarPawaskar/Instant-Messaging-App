@@ -34,7 +34,7 @@ public class JwtTokenValidator extends OncePerRequestFilter{
 				jwt = jwt.substring(7);//because of bearer token 
 				 SecretKey key = Keys.hmacShaKeyFor(JwtConstant.SECRET_KEY.getBytes());
 				 Claims claims= Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(jwt).getBody();
-				 String username = String.valueOf(claims.get("username"));
+				 String username = String.valueOf(claims.get("email"));
 				 String authorities = String.valueOf(claims.get("authorities"));
 		
 				 List<GrantedAuthority> auths = AuthorityUtils.commaSeparatedStringToAuthorityList(authorities);
