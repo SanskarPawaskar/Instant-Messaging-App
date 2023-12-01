@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import com.sanskar.messagingapp.config.TokenProvider;
 import com.sanskar.messagingapp.exception.UserException;
@@ -13,6 +14,7 @@ import com.sanskar.messagingapp.model.User;
 import com.sanskar.messagingapp.repository.UserRepository;
 import com.sanskar.messagingapp.request.UpdateUserRequest;
 
+@Service
 public class UserServiceImplementation implements UserService{
 	
 	@Autowired

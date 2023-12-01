@@ -66,5 +66,9 @@ public class User {
 		this.profile_picture = profile_picture;
 		this.passoword = passoword;
 	}
+
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
 	
 }
