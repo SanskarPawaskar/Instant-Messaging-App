@@ -1,5 +1,7 @@
 package com.sanskar.messagingapp.model;
 
+import java.util.Objects;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,7 +12,7 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Integer id;
 	
 	private String full_name;
 	private String email;
@@ -69,6 +71,24 @@ public class User {
 
 	public User() {
 		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(email, full_name, id, passoword, profile_picture);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		return Objects.equals(email, other.email) && Objects.equals(full_name, other.full_name) && id == other.id
+				&& Objects.equals(passoword, other.passoword) && Objects.equals(profile_picture, other.profile_picture);
 	}
 	
 }

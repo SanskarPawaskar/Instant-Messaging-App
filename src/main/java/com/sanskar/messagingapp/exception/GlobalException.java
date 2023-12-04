@@ -29,6 +29,13 @@ public class GlobalException {
 		
 		return new ResponseEntity<ErrorDetails>(errorDetails,HttpStatus.BAD_REQUEST);
 	}
+	@ExceptionHandler(ChatException.class)
+	public ResponseEntity<ErrorDetails> messageExceptionHandler(ChatException e, WebRequest req){
+		
+		ErrorDetails errorDetails = new ErrorDetails(e.getMessage(),req.getDescription(false),LocalDateTime.now());
+		
+		return new ResponseEntity<ErrorDetails>(errorDetails,HttpStatus.BAD_REQUEST);
+	}
 	
 	
 	@ExceptionHandler(MethodArgumentNotValidException.class)
